@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProfilInitializer implements CommandLineRunner {
+
     private final ProfilRepository profilRepository;
 
     public ProfilInitializer(ProfilRepository profilRepository) {
@@ -14,6 +15,7 @@ public class ProfilInitializer implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
+      /*
         // Vérifie si les profils existent déjà
         if (!profilRepository.existsByProfil("Administrateur")) {
             profilRepository.save(new Profil("Administrateur"));
@@ -21,5 +23,7 @@ public class ProfilInitializer implements CommandLineRunner {
         if (!profilRepository.existsByProfil("Client")) {
             profilRepository.save(new Profil("Client"));
         }
+
+       */
     }
 }

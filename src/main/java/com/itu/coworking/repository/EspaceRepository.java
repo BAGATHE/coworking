@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EspaceRepository extends JpaRepository<Espace, Integer> {
+    Espace findByNom(String nom);
 }

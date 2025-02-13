@@ -9,5 +9,5 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
 
     Utilisateur findByTelephone(String numero);
     Utilisateur findByEmail(String email);
-    Boolean ExistsByTelephone(String numero);
+    Boolean existsByTelephone(String telephone);
 }
