@@ -43,7 +43,7 @@ public String importEspaceForm(){
     }
 
 
-    @GetMapping("/admin/espace/list")
+    @GetMapping("/admin/espaces")
     public String espaceList(Model model){
        model.addAttribute("espaces", espaceRepository.findAll());
        return "Admin/espace/liste";
