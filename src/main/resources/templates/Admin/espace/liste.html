@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="wrapper">
+  <div th:replace="fragments/sidebar :: sidebar"></div>
+
+  <div class="main-panel">
+    <div class="page-inner">
+      <div class="row">
+        <div class="offset-2 col-8">
+          <table class="table table-bordered table-head-bg-success mt-3">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th class="text-center" scope="col">Nom</th>
+              <th class="text-center" scope="col">Prix Heure</th>
+              <th class="text-center" scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Boucle sur la liste des espaces -->
+            <tr th:each="espace, iterStat : ${espaces}">
+              <td class="text-center" th:text="${iterStat.index + 1}"></td>
+              <td class="text-center" th:text="${espace.nom}"></td>
+              <td class="text-center" th:text="${espace.prixHeure} + ' MGA'"></td>
+              <td class="text-center">
+                <!-- Bouton Modifier -->
+                <button type="button" class="btn btn-warning btn-sm">
+                  <a th:href="@{'/admin/espace/edit/' + ${espace.idEspace}}">
+                    <i class="fas fa-edit"></i> Modifier
+                  </a>
+                </button>
+
+                <!-- Bouton Supprimer -->
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" th:data-bs-target="'#deleteModal' + ${espace.idEspace}">
+                  <i class="fas fa-trash-alt"></i> Supprimer
+                </button>
+
+                <!-- Modal de confirmation pour suppression -->
+                <div class="modal fade" th:id="'deleteModal' + ${espace.idEspace}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Confirmer la suppression</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Êtes-vous sûr de vouloir supprimer <strong th:text="${espace.nom}"></strong> ?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <a th:href="@{'/admin/espace/delete/' + ${espace.idEspace}}">
+                          <button type="button" class="btn btn-danger">Supprimer</button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Afficher un message si la liste est vide -->
+            <tr th:if="${#lists.isEmpty(espaces)}">
+              <td colspan="4" class="text-center">Aucune espace trouvée.</td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <!-- Chart JS -->
+      <script src="/assets/js/plugin/chart.js/chart.min.js"></script>
+      <script src="/assets/js/chart/dashboard/linechart.js"></script>
+      <script src="/assets/js/chart/dashboard/barchart.js"></script>
+      <script src="/assets/js/chart/dashboard/piechart.js"></script>
+      <script src="/assets/js/chart/dashboard/barchartmonth.js"></script>
+      <div th:replace="fragments/footer :: footer"></div>
+      <!--   Core JS Files   -->
+      <script src="/assets/js/core/jquery-3.7.1.min.js"></script>
+      <script src="/assets/js/core/popper.min.js"></script>
+      <script src="/assets/js/core/bootstrap.min.js"></script>
+      <!-- jQuery Scrollbar -->
+      <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+      <!-- Bootstrap Notify -->
+      <script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+      <!-- Sweet Alert -->
+      <script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+      <!-- Kaiadmin JS -->
+      <script src="/assets/js/kaiadmin.min.js"></script>
+    </div>
+  </div>
+</body>
+</html>
