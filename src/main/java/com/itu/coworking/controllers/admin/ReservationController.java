@@ -1,7 +1,7 @@
 package com.itu.coworking.controllers.admin;
 
-import com.itu.coworking.repository.OptionRepository;
-import com.itu.coworking.service.OptionService;
+import com.itu.coworking.repository.ReservationRepository;
+import com.itu.coworking.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,34 +12,37 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-public class OptionController {
+public class ReservationController {
     @Autowired
-    OptionService optionService;
-    @Autowired
-    OptionRepository optionRepository;
+    ReservationRepository reservationRepository;
 
-    @GetMapping("/admin/option/import")
-public  String optionImportForm(){
-    return "Admin/option/import";
+    @Autowired
+    ReservationService reservationService;
+
+    @GetMapping("/admin/reservation/import")
+public  String reservationImportForm(){
+    return "Admin/reservation/import";
 }
-@PostMapping("/admin/option/import")
-public String optionImport(@RequestParam("file")MultipartFile file, RedirectAttributes redirectAttributes){
+
+@PostMapping("/admin/reservation/import")
+public String reservationImport(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
     if (file.isEmpty()) {
         redirectAttributes.addFlashAttribute("message", "Veuillez sélectionner un fichier CSV.");
-        return "redirect:/admin/option/import";
+        return "redirect:/admin/reservation/import";
     }
     try {
-        optionService.importCsv(file);
+        reservationService.importCsv(file);
         redirectAttributes.addFlashAttribute("success", "Importation réussie !");
     } catch (Exception e) {
         redirectAttributes.addFlashAttribute("error", "Erreur lors de l'importation : " + e.getMessage());
     }
+    return "redirect:/admin/reservation/import";
+}
 
-    return "redirect:/admin/option/import";
+@GetMapping("/admin/reservations")
+public String reservationList(Model model){
+        model.addAttribute("reservations",reservationRepository.findAll());
+    return "Admin/reservation/liste";
 }
-@GetMapping("/admin/options")
-public String optionList(Model model){
-        model.addAttribute("options",optionRepository.findAll());
-    return "Admin/option/liste";
-}
+
 }

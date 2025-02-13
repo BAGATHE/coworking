@@ -44,4 +44,8 @@ public class EspaceService {
             throw new Exception("Erreur lors de l'importation du fichier CSV : " + e.getMessage());
         }
     }
+
+    public Espace findEspaceByNom(String nom){
+        return  espaceRepository.findByNom(nom);
+    }
 }

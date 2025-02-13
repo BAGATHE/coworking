@@ -5,6 +5,9 @@ import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -24,6 +27,9 @@ public class Option {
     @Column(name="prix",nullable = false)
     @Min(value = 0,message = "prix doit etre superieur a 0")
     private double prix;
+
+    @OneToMany(mappedBy = "option", cascade = CascadeType.ALL)
+    private List<OptionReservation> optionReservations;
 
     public Option() {}
 
