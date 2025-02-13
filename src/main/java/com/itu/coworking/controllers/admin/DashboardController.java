@@ -7,18 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AdminController {
+public class DashboardController {
     @GetMapping("/admin/dashboard")
-    public String dashboardAdmin(HttpSession session, Model model) {
-        Utilisateur utilisateurConnecte = (Utilisateur) session.getAttribute("utilisateur");
-
-        if (utilisateurConnecte == null) {
-            //
-            return "redirect:/admin/login";
-        }
-
-        model.addAttribute("utilisateur", utilisateurConnecte);
-
+    public String dashboardAdmin() {
         return "Admin/dashboard";
     }
 
