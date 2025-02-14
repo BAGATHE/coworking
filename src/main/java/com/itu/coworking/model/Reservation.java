@@ -48,6 +48,9 @@ public class Reservation {
     @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
     private List<OptionReservation> optionReservations;
 
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Paiement> paiements;
+
     public Reservation() {}
     public Reservation(String reference, Date dateReservation, Time heureDebut, Integer duree, double total, Utilisateur utilisateur, Espace espace) {
         this.reference = reference;

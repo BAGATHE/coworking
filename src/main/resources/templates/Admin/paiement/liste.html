@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="wrapper">
+  <div th:replace="fragments/sidebar :: sidebar"></div>
+
+  <div class="main-panel">
+    <div class="page-inner">
+      <div class="row">
+        <div class="offset-1 col-10">
+          <table class="table table-bordered table-head-bg-success mt-3">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th class="text-center" scope="col">Référence Paiement</th>
+              <th class="text-center" scope="col">Référence Réservation</th>
+              <th class="text-center" scope="col">Total Payé</th>
+              <th class="text-center" scope="col">Date</th>
+              <th class="text-center" scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Boucle sur la liste des paiements -->
+            <tr th:each="paiement, iterStat : ${paiements}">
+              <td class="text-center" th:text="${iterStat.index + 1}"></td>
+              <td class="text-center" th:text="${paiement.refPaiement}"></td>
+              <td class="text-center" th:text="${paiement.reservation.reference}"></td>
+              <td class="text-center" th:text="${paiement.reservation.total} + ' MGA'"></td>
+              <td class="text-center" th:text="${#dates.format(paiement.datePaiement, 'dd/MM/yyyy')}"></td>
+              <td class="text-center">
+                <!-- Bouton Modifier -->
+                <button type="button" class="btn btn-warning btn-sm">
+                  <a th:href="@{'/admin/paiement/edit/' + ${paiement.idPaiement}}">
+                    <i class="fas fa-edit"></i> Modifier
+                  </a>
+                </button>
+
+                <!-- Bouton Supprimer -->
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" th:data-bs-target="'#deleteModal' + ${paiement.idPaiement}">
+                  <i class="fas fa-trash-alt"></i> Supprimer
+                </button>
+
+                <!-- Modal de confirmation pour suppression -->
+                <div class="modal fade" th:id="'deleteModal' + ${paiement.idPaiement}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Confirmer la suppression</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Êtes-vous sûr de vouloir supprimer <strong th:text="${paiement.refPaiement}"></strong> ?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <a th:href="@{'/admin/paiement/delete/' + ${paiement.idPaiement}}">
+                          <button type="button" class="btn btn-danger">Supprimer</button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Afficher un message si la liste est vide -->
+            <tr th:if="${#lists.isEmpty(paiements)}">
+              <td colspan="6" class="text-center">Aucun paiement trouvé.</td>
+            </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <!-- Chart JS -->
+      <script src="/assets/js/plugin/chart.js/chart.min.js"></script>
+      <script src="/assets/js/chart/dashboard/linechart.js"></script>
+      <script src="/assets/js/chart/dashboard/barchart.js"></script>
+      <script src="/assets/js/chart/dashboard/piechart.js"></script>
+      <script src="/assets/js/chart/dashboard/barchartmonth.js"></script>
+      <div th:replace="fragments/footer :: footer"></div>
+      <!--   Core JS Files   -->
+      <script src="/assets/js/core/jquery-3.7.1.min.js"></script>
+      <script src="/assets/js/core/popper.min.js"></script>
+      <script src="/assets/js/core/bootstrap.min.js"></script>
+      <!-- jQuery Scrollbar -->
+      <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+      <!-- Bootstrap Notify -->
+      <script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+      <!-- Sweet Alert -->
+      <script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+      <!-- Kaiadmin JS -->
+      <script src="/assets/js/kaiadmin.min.js"></script>
+    </div>
+  </div>
+</body>
+</html>
