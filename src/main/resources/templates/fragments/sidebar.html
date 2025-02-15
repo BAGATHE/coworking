@@ -4,7 +4,7 @@
     <div class="sidebar-logo">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
+            <a href="/admin/dashboard" class="logo">
 
                     <span style="color: white; font-weight: bold; margin-left: 8px; font-size: larger;"
                           th:text="${utilisateur.profil.profil}">
@@ -29,7 +29,7 @@
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item active">
-                    <a href="">
+                    <a href="/admin/dashboard">
                         <i class="far fa-chart-bar"></i>
                         <p>Tableau de bord</p>
                         <span class="caret"></span>
@@ -153,7 +153,26 @@
                         </ul>
                     </div>
                 </li>
-                <!--siderBar option fin-->
+                <!--siderBar paiement fin-->
+
+                <!--siderBar paiement debut-->
+                <li class="nav-item" accept-charset="UTF-8">
+                    <a data-bs-toggle="collapse" href="#validationSider">
+                        <i class="fas fa-thermometer-half"></i>
+                        <p>Validation Paiement</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="validationSider">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="">
+                                    <span class="sub-item">validation</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--siderBar paiement fin-->
                 <!--siderBar deconnection debut-->
                 <li class="nav-item">
                     <a href="">
