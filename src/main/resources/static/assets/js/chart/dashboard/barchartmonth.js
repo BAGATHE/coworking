@@ -50,7 +50,7 @@ var myBarChart = new Chart(barChart, {
       tooltip: {
         callbacks: {
           label: function (context) {
-            return `${context.dataset.label}: €${context.raw}`; // Formatte le tooltip avec €
+            return `${context.dataset.label}: €${context.raw}`;
           },
         },
       },

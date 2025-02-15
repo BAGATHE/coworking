@@ -1,5 +1,7 @@
 package com.itu.coworking.service;
 
+import com.itu.coworking.dto.ChiffreAffaire;
+import com.itu.coworking.dto.ReservationCountByHeure;
 import com.itu.coworking.model.*;
 import com.itu.coworking.repository.*;
 import org.apache.commons.csv.CSVFormat;
@@ -97,6 +99,16 @@ public class ReservationService {
                 for(int i=0;i<tab_options.length;i++){
                     optionReservationRepository.save(new OptionReservation(reservation1,optionRepository.findByCode(tab_options[i].toUpperCase())));
                 }
+                /*je fait update du prix total*/
+                Reservation reservation2 = reservationRepository.findReservationByReference(reservation1.getReference());
+                double montant = 0;
+                List<OptionReservation> optionReservations = reservation2.getOptionReservations();
+                for(OptionReservation optionReservation : optionReservations){
+                    montant += optionReservation.getOption().getPrix();
+                }
+                reservation2.setTotal(montant);
+                reservationRepository.save(reservation2);
+                /***/
                 statusReservationRepository.save(new StatusReservation(reservation1,status, LocalDateTime.now()));
 
             }
@@ -104,5 +116,30 @@ public class ReservationService {
         } catch (Exception e) {
             throw new Exception("Erreur lors de l'importation du fichier CSV : " + e.getMessage());
         }
+    }
+
+
+    public List<ReservationCountByHeure> getReservationCountByHeure() {
+        return reservationRepository.countReservationsByHeureDebut();
+    }
+
+    public ChiffreAffaire getChiffreAffaire(){
+        List<Reservation> reservations =  reservationRepository.findAll();
+        double montantpayer = 0;
+        double montantnonpayer = 0;
+        for(Reservation reservation : reservations){
+            if (reservation.getPaiements().size() > 0){
+                montantpayer += reservation.getTotal();
+            }else{
+                montantnonpayer += reservation.getTotal();
+            }
+        }
+        ChiffreAffaire chiffreAffaire = new ChiffreAffaire(montantpayer,montantnonpayer);
+        return chiffreAffaire;
+    }
+    public List<Reservation> getReservationsBetweenDates(String strdateDebut, String strdateFin) {
+        Date dateDebut = Date.valueOf(strdateDebut);
+        Date dateFin = Date.valueOf(strdateFin);
+        return reservationRepository.findReservationsBetweenDates(dateDebut, dateFin);
     }
 }

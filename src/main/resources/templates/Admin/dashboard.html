@@ -8,113 +8,16 @@
     <div class="main-panel">
         <div >
             <div class="page-inner">
+              <div class="row"><h1 class="text-center">Tableau De Bord</h1> </div>
+
+
                 <div class="row">
-                    <div class="col-sm-6 col-md-3">
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div
-                                                class="icon-big text-center icon-primary bubble-shadow-small"
-                                        >
-                                            <i class="fas fa-users"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ms-3 ms-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Visitors</p>
-                                            <h4 class="card-title">1,294</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div
-                                                class="icon-big text-center icon-info bubble-shadow-small"
-                                        >
-                                            <i class="fas fa-user-check"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ms-3 ms-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Subscribers</p>
-                                            <h4 class="card-title">1303</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div
-                                                class="icon-big text-center icon-success bubble-shadow-small"
-                                        >
-                                            <i class="fas fa-luggage-cart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ms-3 ms-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Sales</p>
-                                            <h4 class="card-title">$ 1,345</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div
-                                                class="icon-big text-center icon-secondary bubble-shadow-small"
-                                        >
-                                            <i class="far fa-check-circle"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ms-3 ms-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Order</p>
-                                            <h4 class="card-title">576</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <div class="card " style="max-height: 64vh; overflow: hidden;">
+                    <div class="col-6">
+                        <div class="card" style="max-height: 64vh; overflow: hidden;">
                             <div class="card-header">
-                                <form method="POST" action="" class="row g-3">
-                                    <div class="col-3">
-                                        <select name="" id="" class="form-select">
-                                            <option value="">-- Toutes les XXX --</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-3">
-                                        <select name="" id="" class="form-select">
-                                            <option value="">-- Toutes les XXX --</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-2">
-                                        <button type="submit" class="btn btn-success">Valider</button>
-                                    </div>
-                                </form>
+                              <h4 class="text-center">Top 3 des creneaux horaire</h4>
                             </div>
-                            <div class="card-body" style="overflow-y: auto;">
+                            <div class="card-body" style="overflow-y: auto;" >
                                 <ul class="nav nav-pills nav-secondary" id="pills-tab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="pills-chart-1-tab" data-bs-toggle="pill" href="#pills-chart-1" role="tab" aria-controls="pills-chart-1" aria-selected="true">chart</a>
@@ -126,61 +29,30 @@
                                 <div class="tab-content mt-2 mb-3" id="pills-tabContent">
                                     <div class="tab-pane fade show active " id="pills-chart-1" role="tabpanel" aria-labelledby="pills-chart-1-tab">
                                         <div class="chart-container">
-                                            <canvas id="lineChart"></canvas>
+                                            <canvas
+                                                    id="pieChart1"
+                                                    style="width: 50%; height: 50%"
+                                            ></canvas>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="pills-tableau-1" role="tabpanel" aria-labelledby="pills-tableau-1-tab">
+                                    <div class="tab-pane fade" id="pills-tableau-1" role="tabpanel" aria-labelledby="pills-tableau-2-tab">
                                         <div class="table-responsive">
-                                            <table class="table align-items-center mb-0">
-                                                <thead class="thead-light">
+
+                                            <table class="table table-bordered">
+                                                <thead>
                                                 <tr>
-                                                    <th scope="col">Payment Number</th>
-                                                    <th scope="col" class="text-end">Date & Time</th>
-                                                    <th scope="col" class="text-end">Amount</th>
+                                                    <th class="text-center">Heure de Début</th>
+                                                    <th class="text-center">Nombre de Réservations</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
+                                                <tr th:each="stat : ${statsReservations}">
+                                                    <td class="text-center" th:text="${stat.heureDebut}"></td>
+                                                    <td class="text-center" th:text="${stat.count}"></td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
+                                                <!-- Afficher un message si aucune donnée -->
+                                                <tr th:if="${#lists.isEmpty(statsReservations)}">
+                                                    <td colspan="2" class="text-center">Aucune réservation trouvée.</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -191,98 +63,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-5">
+                    <div class="col-6">
                         <div class="card" style="max-height: 64vh; overflow: hidden;">
                             <div class="card-header">
-                                <form method="POST" action="" class="row g-3">
-                                    <div class="col-3">
-                                        <select name="" id="" class="form-select">
-                                            <option value="">-- Toutes les XXX --</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-3">
-                                        <select name="" id="" class="form-select">
-                                            <option value="">-- Toutes les XXX --</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-2">
-                                        <button type="submit" class="btn btn-success">Valider</button>
-                                    </div>
-                                </form>
+                                <h4 class="text-center">Chiffre d'Affaires</h4>
                             </div>
                             <div class="card-body" style="overflow-y: auto;" >
-                                <ul class="nav nav-pills nav-secondary" id="pills-tab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="pills-chart-2-tab" data-bs-toggle="pill" href="#pills-chart-2" role="tab" aria-controls="pills-chart-2" aria-selected="true">chart</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-tableau-2-tab" data-bs-toggle="pill" href="#pills-tableau-2" role="tab" aria-controls="pills-tableau-2" aria-selected="false">tableau</a>
-                                    </li>
-                                </ul>
                                 <div class="tab-content mt-2 mb-3" id="pills-tabContent">
                                     <div class="tab-pane fade show active " id="pills-chart-2" role="tabpanel" aria-labelledby="pills-chart-2-tab">
+                                        <div class="d-flex justify-content-center align-items-center mb-3 gap-5">
+                                            <p>Payer : <span th:text="${chiffreaffaire.payer} + ' Ar'"></span></p>
+                                            <p>Non payer : <span th:text="${chiffreaffaire.nonPayer} + ' Ar'"></span></p>
+                                        </div>
                                         <div class="chart-container">
                                             <canvas
-                                                    id="pieChart"
+                                                    id="pieChart2"
                                                     style="width: 50%; height: 50%"
                                             ></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-tableau-2" role="tabpanel" aria-labelledby="pills-tableau-2-tab">
-                                        <div class="table-responsive">
-                                            <table class="table align-items-center mb-0">
-                                                <thead class="thead-light">
-                                                <tr>
-                                                    <th scope="col">Payment Number</th>
-                                                    <th scope="col" class="text-end">Date & Time</th>
-                                                    <th scope="col" class="text-end">Amount</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -292,14 +89,12 @@
                     </div>
                 </div>
 
+
                 <div class="row">
                     <div class="col-10 offset-1">
                         <div class="card" style="max-height: 64vh; overflow: hidden;">
                             <div class="card-header">
                                 <ul class="nav nav-pills nav-secondary" id="pills-tab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="pills-chartA-3-tab" data-bs-toggle="pill" href="#pills-chartA-3" role="tab" aria-controls="pills-chartA-3" aria-selected="true">Annuelle</a>
-                                    </li>
                                     <li class="nav-item">
                                         <a class="nav-link " id="pills-chartM-3-tab" data-bs-toggle="pill" href="#pills-chartM-3" role="tab" aria-controls="pills-chartM-3" aria-selected="true">Mensuelle</a>
                                     </li>
@@ -312,42 +107,19 @@
                             <div class="card-body" style="overflow-y: auto;">
 
                                 <div class="tab-content mt-2 mb-3" id="pills-tabContent">
-                                    <div class="tab-pane fade show active " id="pills-chartA-3" role="tabpanel" aria-labelledby="pills-chartA-3-tab">
-                                        <form method="POST" action="" class="row g-3">
-                                            <div class="col-3">
-                                                <select name="" id="" class="form-select">
-                                                    <option value="">-- Toutes les XXX --</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-3">
-                                                <select name="" id="" class="form-select">
-                                                    <option value="">-- Toutes les XXX --</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-2">
-                                                <button type="submit" class="btn btn-success">Valider</button>
-                                            </div>
-                                        </form>
-                                        <div class="chart-container">
-                                            <canvas id="barChart"></canvas>
-                                        </div>
-                                    </div>
                                     <div class="tab-pane fade show active " id="pills-chartM-3" role="tabpanel" aria-labelledby="pills-chartM-3-tab">
-                                        <form method="POST" action="" class="row g-3">
+                                        <form method="POST" action="/admin/dashboard" class="row g-3">
                                             <div class="col-3">
-                                                <select name="" id="" class="form-select">
-                                                    <option value="">-- Toutes les XXX --</option>
-                                                </select>
+                                                <input type="date" name="date_debut" id="date_debut" class="form-control" required>
                                             </div>
                                             <div class="col-3">
-                                                <select name="" id="" class="form-select">
-                                                    <option value="">-- Toutes les XXX --</option>
-                                                </select>
+                                                <input type="date" name="date_fin" id="date_fin" class="form-control" required>
                                             </div>
                                             <div class="col-2">
                                                 <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                         </form>
+
                                         <div class="chart-container">
                                             <canvas id="barChartMonthly"></canvas>
                                         </div>
@@ -357,56 +129,23 @@
                                             <table class="table align-items-center mb-0">
                                                 <thead class="thead-light">
                                                 <tr>
-                                                    <th scope="col">Payment Number</th>
-                                                    <th scope="col" class="text-end">Date & Time</th>
-                                                    <th scope="col" class="text-end">Amount</th>
+                                                    <th scope="col">Date de Réservation</th>
+                                                    <th scope="col" class="text-end">Total</th>
+                                                    <th scope="col" class="text-end">Espace</th>
+                                                    <th scope="col" class="text-end">Etat</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                                    <td class="text-end">$250.00</td>
-                                                    <td class="text-end">
-                                                        <span class="badge badge-success">Completed</span>
-                                                    </td>
+                                                <!-- Boucle sur chaque réservation -->
+                                                <tr th:each="reservation : ${chiffreaffaires}">
+                                                    <td th:text="${reservation.dateReservation}"></td>
+                                                    <td class="text-end" th:text="${reservation.total}"></td>
+                                                    <td class="text-end" th:text="${reservation.espace.nom}"></td>
+                                                    <td class="text-end" th:text="${reservation.getPaiements().size() > 0} ? 'Payé' : 'Non payé'"></td>
                                                 </tr>
                                                 </tbody>
                                             </table>
+
                                         </div>
                                     </div>
                                 </div>
@@ -416,85 +155,150 @@
                     </div>
                 </div>
 
-
-
-
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card card-round">
-                            <div class="card-header">
-                                <div class="card-head-row card-tools-still-right">
-                                    <div class="card-title">Transaction History</div>
-                                    <div class="card-tools">
-                                        <div class="dropdown">
-                                            <button
-                                                    class="btn btn-icon btn-clean me-0"
-                                                    type="button"
-                                                    id="dropdownMenuButton"
-                                                    data-bs-toggle="dropdown"
-                                                    aria-haspopup="true"
-                                                    aria-expanded="false"
-                                            >
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </button>
-                                            <div
-                                                    class="dropdown-menu"
-                                                    aria-labelledby="dropdownMenuButton"
-                                            >
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#"
-                                                >Something else here</a
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <!-- Projects table -->
-                                    <table class="table align-items-center mb-0">
-                                        <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Payment Number</th>
-                                            <th scope="col" class="text-end">Date & Time</th>
-                                            <th scope="col" class="text-end">Amount</th>
-                                            <th scope="col" class="text-end">Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">
-                                                <button
-                                                        class="btn btn-icon btn-round btn-success btn-sm me-2"
-                                                >
-                                                    <i class="fa fa-check"></i>
-                                                </button>
-                                                Payment from #10231
-                                            </th>
-                                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                                            <td class="text-end">$250.00</td>
-                                            <td class="text-end">
-                                                <span class="badge badge-success">Completed</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- Chart JS -->
         <script src="/assets/js/plugin/chart.js/chart.min.js"></script>
-        <script src="/assets/js/chart/dashboard/linechart.js"></script>
-        <script src="/assets/js/chart/dashboard/barchart.js"></script>
-        <script src="/assets/js/chart/dashboard/piechart.js"></script>
-        <script src="/assets/js/chart/dashboard/barchartmonth.js"></script>
+        <script th:inline="javascript">
+            var pieChart1 = document.getElementById("pieChart1").getContext("2d");
+            var heures = /*[[${statsReservations.![heureDebut]}]]*/ [];
+            var counts = /*[[${statsReservations.![count]}]]*/ [];
+            // Couleurs dynamiques pour les différentes heures
+            var colors = ["#1d7af3", "#f3545d", "#fdaf4b", "#2dce89", "#f5b041", "#a569bd"];
+
+            // Création du Pie Chart
+            var myPieChart1 = new Chart(pieChart1, {
+                type: "pie",
+                data: {
+                    datasets: [
+                        {
+                            data: counts,
+                            backgroundColor: colors.slice(0, counts.length), // Sélectionne autant de couleurs que nécessaire
+                            borderWidth: 0,
+                        },
+                    ],
+                    labels: heures, // Labels des heures
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                fontColor: "rgb(154, 154, 154)",
+                                fontSize: 11,
+                                usePointStyle: true,
+                                padding: 20,
+                                generateLabels: function(chart) {
+                                    let data = chart.data;
+                                    if (data.labels.length && data.datasets.length) {
+                                        return data.labels.map((label, i) => {
+                                            return {
+                                                text: `${label} (${data.datasets[0].data[i]} réservations)`,
+                                                fillStyle: data.datasets[0].backgroundColor[i],
+                                                strokeStyle: "transparent",
+                                                lineWidth: 0
+                                            };
+                                        });
+                                    }
+                                    return [];
+                                }
+                            }
+                        },
+                        tooltip: {
+                            enabled: true
+                        },
+                        datalabels: {
+                            color: "white",
+                            font: {
+                                size: 14
+                            },
+                            formatter: (value) => {
+                                return value + " réservations"; // Affiche directement les réservations
+                            }
+                        }
+                    }
+                },
+            });
+
+        </script>
+        <script th:inline="javascript">
+            var pieChart2 = document.getElementById("pieChart2").getContext("2d");
+
+            // Injection des valeurs de chiffre d'affaire
+            var payer = /*[[${chiffreaffaire.payer}]]*/ 0;  // Paiements effectués
+            var nonPayer = /*[[${chiffreaffaire.nonPayer}]]*/ 0;  // Paiements non effectués
+
+            var myPieChart2 = new Chart(pieChart2, {
+                type: "pie",
+                data: {
+                    datasets: [
+                        {
+                            data: [payer, nonPayer],  // Utilisation des valeurs dynamiques
+                            backgroundColor: ["#1d7af3", "#f3545d"],  // Couleurs des segments
+                            borderWidth: 0,
+                        },
+                    ],
+                    labels: ["Paiements effectués", "Paiements en attente"],  // Labels
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: "bottom",
+                        labels: {
+                            fontColor: "rgb(154, 154, 154)",
+                            fontSize: 11,
+                            usePointStyle: true,
+                            padding: 20,
+                        },
+                    },
+                    pieceLabel: {
+                        render: "percentage",
+                        fontColor: "white",
+                        fontSize: 14,
+                    },
+                    tooltips: false,
+                    layout: {
+                        padding: {
+                            left: 20,
+                            right: 20,
+                            top: 20,
+                            bottom: 20,
+                        },
+                    },
+                },
+            });
+        </script>
+        <script th:inline="javascript">
+            // Récupérer les données passées par le contrôleur
+            var dates = /*[[${dates}]]*/ [];
+            var totals = /*[[${totals}]]*/ [];
+
+            // Configurer le graphique à barres
+            var ctx = document.getElementById('barChartMonthly').getContext('2d');
+            var barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dates, // Les dates sur l'axe X
+                    datasets: [{
+                        label: 'Chiffre d\'affaires par date',
+                        data: totals, // Les totaux sur l'axe Y
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Couleur de fond des barres
+                        borderColor: 'rgba(54, 162, 235, 1)', // Couleur de la bordure des barres
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true // Commencer l'axe Y à 0
+                        }
+                    }
+                }
+            });
+        </script>
         <div th:replace="fragments/footer :: footer"></div>
         <!--   Core JS Files   -->
         <script src="/assets/js/core/jquery-3.7.1.min.js"></script>
